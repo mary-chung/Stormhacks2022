@@ -6,24 +6,34 @@ import { Link } from 'react-router-dom'
 function StickyNoteExpand() {
     return (
         <Card className="sticky-note-expanded" variant="outlined">
-            <Box sx={{padding: '1rem'}}>
+            <Box sx={{padding: '1rem', backgroundColor: 'rgba(190, 200, 218, 0.5)'}}>
                 <CardContent>
                     <Typography variant="h5" component="h2">Thought Lorem ipsum dolor sit amet</Typography>
                     <div className="action-group">  
-                        <Typography variant="h6" component="h3">Action 1 Lorem ipsum dolor sit amet</Typography>
+                        <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> Lorem ipsum dolor sit amet</Typography>
                         <RadioGroupRating />
                     </div>
                     <div className="action-group">
-                        <Typography variant="h6" component="h3">Action 2 Lorem ipsum dolor sit amet</Typography>
+                        <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> Lorem ipsum dolor sit amet</Typography>
                         <RadioGroupRating />
                     </div>
                     <div className="action-group">
-                        <Typography variant="h6" component="h3">Action 3 Lorem ipsum dolor sit amet</Typography>
+                        <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> Lorem ipsum dolor sit amet</Typography>
                         <RadioGroupRating />
                     </div>
-                    <Typography paragraph>Notes go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum fermentum dolor, et aliquam nibh eleifend ac.</Typography>
-                    <CardActions>
-                        <Link to={'/'}><Button component="div" variant="contained">Okay</Button></Link>
+                    <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> Notes go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum fermentum dolor, et aliquam nibh eleifend ac.</Typography>
+                    <CardActions sx={{paddingLeft: '0'}}>
+                        <Link to={'/'}>
+                            <Button component="div" 
+                                    variant="outlined" 
+                                    sx={{
+                                        backgroundColor: 'white', 
+                                        '&:hover': {
+                                        backgroundColor: 'white'},
+                                        }} >
+                            Back
+                            </Button>
+                        </Link>
                     </CardActions>
                 </CardContent>
             </Box>

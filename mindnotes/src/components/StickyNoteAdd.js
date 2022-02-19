@@ -1,13 +1,15 @@
 import { Card, CardContent, CardActions } from '@mui/material';
-// import { Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { TextField, Button } from '@mui/material';
 import { Box } from '@mui/material';
-// import AddButton from '../components/AddButton';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function StickyNoteAdd() {
 
     const actionItem = <TextField id="fullWidth" label="Action" variant="standard" fullWidth margin="normal" />;
+
+    const navigate = useNavigate();
 
     const [actionList, setActionList]= useState([]);
 
@@ -25,12 +27,16 @@ function StickyNoteAdd() {
         )
     }
 
+    function handleSubmit(){
+        navigate('/');
+    }
+
     return (
         <Card sx={{ minWidth: 500 }} variant="outlined">
             <Box
               component="form"
             /* Need to send data to backend on form submit */
-              onSubmit={addItemToList}
+              onSubmit={handleSubmit}
               action="/"
               sx={{
                // '& > :not(style)': { m: 1, width: '25ch' },
@@ -41,7 +47,7 @@ function StickyNoteAdd() {
                   autoComplete="off"
                   >
             <CardContent>
-                    <h2>What's on your mind?</h2>
+                    <Typography sx={{color: '#746867'}} variant="h5" component="h2">What's on your mind?</Typography>
                     <TextField id="fullWidth" label="Thought" variant="standard" fullWidth margin="normal"/>
                     <TextField id="fullWidth" label="Action" variant="standard" fullWidth margin="normal" />
                     {outputActionList(actionList)}

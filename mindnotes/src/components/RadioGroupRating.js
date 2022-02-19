@@ -3,11 +3,21 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
+import { styled } from '@mui/material/styles';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
 import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
 import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+
+const StyledRating = styled(Rating)({
+  '& .MuiRating-iconFilled': {
+    color: '#746867',
+  },
+  '& .MuiRating-iconHover': {
+    color: '#746867',
+  },
+});
 
 const customIcons = {
   1: {
@@ -43,11 +53,11 @@ IconContainer.propTypes = {
 
 export default function RadioGroupRating() {
   return (
-    <Rating
+    <StyledRating
       name="highlight-selected-only"
-      defaultValue={2}
+      // defaultValue={5}
       IconContainerComponent={IconContainer}
-      highlightSelectedOnly
+      // highlightSelectedOnly
     />
   );
 }

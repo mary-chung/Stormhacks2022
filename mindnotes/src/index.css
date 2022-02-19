@@ -13,6 +13,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
   /* background-color: var(--pale-blue); */
 }
 
@@ -47,20 +48,24 @@ a, a:visited {
   text-align: center;
   text-transform: lowercase;
   padding: 1rem;
+  /* margin-bottom: 1rem; */
+}
+
+header a {
+  text-decoration: none;
+  color: var(--blue);
+  display: flex;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
-.site-title a {
-  text-decoration: none;
-  color: var(--blue);
+header a:hover {
+  color: var(--dark-blue);
 }
 
-a.title-white {
-  color: var(--black);
-}
-
-.site-title a:hover{
-  color: var(--brown);
+.mindnotes-logo {
+  width: 64px;
+  height: 64px;
 }
 
 /* Main */
