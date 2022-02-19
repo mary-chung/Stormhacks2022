@@ -1,8 +1,19 @@
+:root {
+  --white: #ffffff;
+  --pale-blue: #bec8da;
+  --blue: #7195a8;
+  --dark-blue: #478caa;
+  --grey: #7d797a;
+  --brown: #746867;
+  --black: #333333;
+}
+
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: var(--pale-blue); */
 }
 
 code {
@@ -10,9 +21,20 @@ code {
     monospace;
 }
 
+/* Typography */
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
+
+/* Links */
+
+a, a:visited {
+  color: inital;
+  text-decoration: none;
+}
+
+/* Layout */
 
 .wrapper {
   max-width: 1800px;
@@ -30,16 +52,57 @@ h1, h2, h3, h4, h5, h6 {
 
 .site-title a {
   text-decoration: none;
-  color: initial;
+  color: var(--blue);
+}
+
+a.title-white {
+  color: var(--black);
 }
 
 .site-title a:hover{
-  color: blue;
+  color: var(--brown);
+}
+
+/* Main */
+main {
+  margin-bottom: 5rem;
 }
 
 /* Components */
+
+.add-button {
+  width: 64px;
+  display: block;
+  margin: 0 auto 3rem;
+}
+
 .sticky-note-expanded h2,
 .sticky-note-expanded .action-group,
 .sticky-note-expanded p {
   margin-bottom: 1rem;
+}
+
+.action-label {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--dark-blue);
+  padding: 0.15rem 0.5rem;
+  border-radius: 5px;
+}
+
+.note-label {
+  font-weight: 700;
+}
+
+.MuiGrid-container.home-page-grid > div:nth-child(3n + 1) > div > a > .MuiCardContent-root {
+  color: var(--black);
+  background-color: rgba(190, 200, 218, 0.5);
+}
+.MuiGrid-container.home-page-grid > div:nth-child(3n + 2) > div > a > .MuiCardContent-root {
+  color: var(--black);
+  background-color: rgba(125, 121, 122, 0.5);
+}
+
+.MuiGrid-container.home-page-grid > div:nth-child(3n+ 3) > div > a > .MuiCardContent-root {
+  color: var(--black);
+  background-color: rgba(113, 149, 168, 0.5);
 }

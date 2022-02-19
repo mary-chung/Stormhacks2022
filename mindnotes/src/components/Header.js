@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
+
+    const location = useLocation();
+
     return (
         <header>
-            <h1 className="site-title"><Link to={'/'}>Mindnotes</Link></h1>
+            <h1 className="site-title"><Link to={'/'} className={(location.pathname === '/note' || location.pathname === '/add' ) ? 'title-white' : undefined}>Mindnotes</Link></h1>
         </header>
     )
 }

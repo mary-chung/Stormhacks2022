@@ -3,15 +3,17 @@ import { Grid } from '@mui/material';
 
 function PageAdd() {
     return (
-        <Grid container spacing={3}>
-            <Grid item xs={3}>
+        <main>
+            <Grid className="add-page-grid" container spacing={3}>
+                <Grid item xs={3}>
+                </Grid>
+                <Grid item xs={6}>
+                    <StickyNoteAdd />
+                </Grid>
+                <Grid item xs={3}>
+                </Grid>
             </Grid>
-            <Grid item xs={6}>
-                <StickyNoteAdd />
-            </Grid>
-            <Grid item xs={3}>
-            </Grid>
-        </Grid>
+        </main>
     )
 }
 

@@ -1,12 +1,14 @@
 import { Grid } from '@mui/material';
 import StickyNote from '../components/StickyNote';
+import AddButton from '../components/AddButton';
 
 function PageHome() {
     return (
-        <div>
-            <h2>Welcome to mindnotes</h2>
-            <p>Click the add button to add your worry.</p>
-        <Grid container spacing={3}>
+        <main>
+            {/* <h2>Welcome to mindnotes</h2>
+            <p>Click the add button to add your worry.</p> */}
+            <AddButton/>
+        <Grid container spacing={3} className="home-page-grid">
             <Grid item xs={3}>
                 <StickyNote />
             </Grid>
@@ -44,7 +46,7 @@ function PageHome() {
                 <StickyNote />
             </Grid>
         </Grid>
-        </div>
+        </main>
     )
 }
 
