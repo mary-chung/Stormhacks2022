@@ -7,13 +7,6 @@ function AddButton() {
             <Link to={"/add"}>
                 <Button variant="contained"
                         component="div" 
-                        // sx={{
-                        //     backgroundColor: '#746867',
-                        //     '&:hover': {
-                        //         backgroundColor: '#478caa',
-                        //     },
-                        // }}
-                        primary
                         >
                     Add
                 </Button>

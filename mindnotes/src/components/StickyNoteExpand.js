@@ -1,9 +1,16 @@
 import { Card, CardContent, CardActions } from '@mui/material';
 import { Box, Button, Typography } from '@mui/material';
 import RadioGroupRating from '../components/RadioGroupRating';
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function StickyNoteExpand() {
+
+    const navigate = useNavigate();
+
+    function handleBackClick() {
+        navigate('/')
+    }
+
     return (
         <Card className="sticky-note-expanded" variant="outlined">
             <Box sx={{padding: '1rem', backgroundColor: 'rgba(190, 200, 218, 0.5)'}}>
@@ -23,8 +30,8 @@ function StickyNoteExpand() {
                     </div>
                     <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> Notes go here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur rutrum fermentum dolor, et aliquam nibh eleifend ac.</Typography>
                     <CardActions sx={{paddingLeft: '0'}}>
-                        <Link to={'/'}>
-                            <Button component="div" 
+                            <Button onClick={handleBackClick}
+                                    component="div" 
                                     variant="outlined" 
                                     sx={{
                                         backgroundColor: 'white', 
@@ -33,7 +40,6 @@ function StickyNoteExpand() {
                                         }} >
                             Back
                             </Button>
-                        </Link>
                     </CardActions>
                 </CardContent>
             </Box>
