@@ -42,6 +42,7 @@ function StickyNoteAdd() {
             "card_title": thought,
             "strategies": [action]
         }
+        console.log(card)
 
         const requestOptions = {
             method: 'POST',
