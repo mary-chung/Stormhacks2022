@@ -3,8 +3,9 @@ const dotenv = require('dotenv').config()
 
 const express = require("express");
 const mongoose = require("mongoose");
+const bodyparser = require("body-parser")
 const app = express();
-app.use(express.json());
+
 
 const defaultRoute = require("./routes/defaultRoute");
 app.use('/', defaultRoute);
@@ -25,6 +26,8 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
+app.use(bodyparser.json());
 
 // database connection
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true});
