@@ -1,19 +1,43 @@
 import { Card, CardContent, CardActions } from '@mui/material';
 import { Box, IconButton, Button, Typography } from '@mui/material';
 import RadioGroupRating from '../components/RadioGroupRating';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 function StickyNoteExpand({note}) {
 
+    const { id } = useParams();
+
     const navigate = useNavigate();
+
+    function actionGroup() {
+        for (let i=0; i < note.strategies.length; i++ ) {
+            const noteStrategies = note.strategies[i];
+
+            return (
+                <div>
+                    {note.strategies.map((noteStrategy, i) => 
+                        <div className="action-group">  
+                            <Typography key={noteStrategies} 
+                                        variant="p" 
+                                        component="h3" 
+                                        sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}>
+                                            <span className="action-label">Action</span> {noteStrategies.strategy}
+                            </Typography>
+                            <RadioGroupRating noteStrategy={noteStrategy} />
+                        </div>
+                        )}
+                </div>  
+            )
+        }
+    }
 
     function handleBackClick() {
         navigate('/')
     }
 
     function handleEditClick() {
-        navigate('/add')
+        navigate(`/edit/${id}`)
     }
 
     function handleDeleteClick() {
@@ -26,21 +50,8 @@ function StickyNoteExpand({note}) {
                 <CardContent>
                     {note.card_title !== "" && 
                         <Typography variant="h5" component="h2">{note.card_title}</Typography>}
-                    {note.strategies[0].strategy !== "" && 
-                        <div className="action-group">  
-                            <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[0].strategy}</Typography>
-                            <RadioGroupRating />
-                        </div>}
-                    {note.strategies[1].strategy !== "" && 
-                        <div className="action-group">
-                            <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[1].strategy}</Typography>
-                            <RadioGroupRating />
-                        </div>}
-                    {note.strategies[2].strategy !== "" && 
-                        <div className="action-group">
-                            <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[2].strategy}</Typography>
-                            <RadioGroupRating />
-                        </div>}
+                        {/* dynamically inserts the actions */}
+                        {actionGroup()}
                     {note.notes !== "" && 
                         <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> {note.notes}</Typography>}
  
