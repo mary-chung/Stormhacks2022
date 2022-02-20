@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import PageHome from '../pages/PageHome';
 import PageAdd from '../pages/PageAdd';
 import PageNote from '../pages/PageNote';
-import Footer from '../components/Footer';
 
 function AppRouter() {
 
@@ -24,9 +23,8 @@ function AppRouter() {
           <Routes>
             <Route path="/" element={<PageHome />} />
             <Route path="/add" element={<PageAdd />} />
-            <Route path="/note" element={<PageNote />} />
+            <Route path="/note/:id" element={<PageNote />} />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </div>

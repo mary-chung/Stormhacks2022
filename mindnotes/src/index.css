@@ -14,7 +14,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--black);
-  /* background-color: var(--pale-blue); */
 }
 
 code {
@@ -40,7 +39,7 @@ a, a:visited {
 .wrapper {
   max-width: 1800px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 /* Header */
@@ -52,7 +51,6 @@ header {
   text-align: center;
   text-transform: lowercase;
   padding: 1rem;
-  /* margin-bottom: 1rem; */
 }
 
 header a {
@@ -74,7 +72,7 @@ header a:hover {
 
 /* Main */
 main {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 /* Components */
@@ -111,6 +109,7 @@ main {
   color: var(--black);
   background-color: rgba(190, 200, 218, 0.5);
   height: 380px;
+  overflow: scroll;
 }
 
 .MuiGrid-container.home-page-grid > div:nth-child(3n + 2) > div > a > .MuiCardContent-root {

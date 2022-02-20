@@ -5,10 +5,10 @@ function Header() {
 
     return (
         <header>
-                <Link to={'/'}>
-                    <img className="mindnotes-logo" src={mindnotesLogo} alt="Mindnotes logo"/>
-                    <h1 className="site-title">Mindnotes</h1>
-                </Link>
+            <Link to={'/'}>
+                <img className="mindnotes-logo" src={mindnotesLogo} alt="Mindnotes logo"/>
+                <h1 className="site-title">Mindnotes</h1>
+            </Link>
         </header>
     )
 }

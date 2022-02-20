@@ -1,27 +1,40 @@
 import { Grid } from '@mui/material';
-import StickyNote from '../components/StickyNote';
-import AddButton from '../components/AddButton';
 import Instructions from '../components/Instructions';
 import StickyNoteSample from '../components/StickyNoteSample';
 import StickyNoteHomeAdd from '../components/StickyNoteHomeAdd';
-import StickyNoteAll from '../components/StickyNoteAll';
+import Mindboard from '../components/Mindboard';
+import { useState, useEffect } from 'react';
+
 
 function PageHome() {
+
+    const [noteData, setNoteData] = useState(null);
+
+    useEffect(() => {
+        const fetchNote = async () => {
+        const res = await fetch(``);
+        let noteDataFromAPI = await res.json();
+
+        noteDataFromAPI = noteDataFromAPI.results.splice(0, 15);
+        console.log(noteDataFromAPI);
+        setNoteData(noteDataFromAPI);
+        }
+
+        fetchNote();
+    }, []);
+
     return (
         <main>
-            {/* <AddButton /> */}
-        {/* <Grid container spacing={3} className="home-page-grid">
-            <Instructions />
-            <StickyNoteSample />
-            <StickyNoteHomeAdd />
-        </Grid> */}
-        {/* <Grid container spacing={3} className="home-page-grid"> */}
-            {/* <Grid item xs={3}>
-                <StickyNote />
-            </Grid> */}
-            {/* <StickyNoteHomeAdd /> */}
-        {/* </Grid> */}
-        <StickyNoteAll />
+        {noteData !== null &&
+                <section>                 
+                    {noteData.length > 0 ?
+                    <Mindboard notes={noteData} /> : 
+                    <Grid container spacing={3} className="home-page-grid">
+                        <Instructions />
+                        <StickyNoteSample />
+                        <StickyNoteHomeAdd />
+                     </Grid>}
+                </section> }
         </main>
     )
 }

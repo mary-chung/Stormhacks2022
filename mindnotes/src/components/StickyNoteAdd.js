@@ -7,11 +7,15 @@ import { useNavigate } from 'react-router-dom';
 
 function StickyNoteAdd() {
 
-    const actionItem = <TextField id="fullWidth" label="Action" variant="standard" fullWidth margin="normal" />;
-
+    
     const navigate = useNavigate();
-
+    
+    const [thought, setThought] = useState("");
+    const [action, setAction] = useState("");
+    const [note, setNote] = useState("");
     const [actionList, setActionList]= useState([]);
+    
+    const actionItem = <TextField id="fullWidth" label="Action" variant="standard" fullWidth margin="normal" />;
 
     function addItemToList(e){
         e.preventDefault();
@@ -27,8 +31,9 @@ function StickyNoteAdd() {
         )
     }
 
-    function handleSubmit(){
-        navigate('/');
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log(thought, action, note);
     }
 
     return (
@@ -48,18 +53,34 @@ function StickyNoteAdd() {
                   >
             <CardContent>
                     <Typography sx={{color: '#746867'}} variant="h5" component="h2">What's on your mind?</Typography>
-                    <TextField id="fullWidth" label="Thought" variant="standard" fullWidth margin="normal"/>
-                    <TextField id="fullWidth" label="Action" variant="standard" fullWidth margin="normal" />
+                    <TextField  id="fullWidth" 
+                                label="Thought"
+                                value={thought} 
+                                onInput={ e=>setThought(e.target.value)}
+                                variant="standard" 
+                                fullWidth 
+                                margin="normal"/>
+                    <TextField  id="fullWidth" 
+                                label="Action"
+                                value={action} 
+                                onInput={ e=>setAction(e.target.value)} 
+                                variant="standard" 
+                                fullWidth 
+                                margin="normal" />
                     {outputActionList(actionList)}
-                    <TextField id="fullWidth" label="Notes" multiline variant="standard" fullWidth margin="normal" />
+                    <TextField  id="fullWidth" 
+                                label="Notes" 
+                                value={note} 
+                                onInput={ e=>setNote(e.target.value)}
+                                multiline 
+                                variant="standard" 
+                                fullWidth margin="normal" />
             </CardContent>
             <CardActions>
                 <Button variant="outlined"
                     onClick={addItemToList}
                 >New Action</Button>
-                {/* <input type="submit" value="Add"> */}
                 <Button type="submit" variant="contained">Add</Button>
-                {/* </input> */}
             </CardActions>
             </Box>
         </Card>

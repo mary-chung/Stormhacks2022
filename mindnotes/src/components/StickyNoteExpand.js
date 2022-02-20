@@ -4,7 +4,7 @@ import RadioGroupRating from '../components/RadioGroupRating';
 import { useNavigate } from 'react-router-dom';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-function StickyNoteExpand() {
+function StickyNoteExpand({note}) {
 
     const navigate = useNavigate();
 
@@ -24,20 +24,26 @@ function StickyNoteExpand() {
         <Card className="sticky-note-expanded" variant="outlined">
             <Box sx={{padding: '1rem', backgroundColor: 'rgba(190, 200, 218, 0.5)'}}>
                 <CardContent>
-                    <Typography variant="h5" component="h2">Nervous for my project presentation on Tuesday</Typography>
-                    <div className="action-group">  
-                        <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> Write some speaker notes</Typography>
-                        <RadioGroupRating />
-                    </div>
-                    <div className="action-group">
-                        <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> Practice in front of a friend</Typography>
-                        <RadioGroupRating />
-                    </div>
-                    <div className="action-group">
-                        <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> Go for a quick walk before presenting</Typography>
-                        <RadioGroupRating />
-                    </div>
-                    <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> Remember to go to the seminar room earlier to set up!</Typography>
+                    {note.card_title !== "" && 
+                        <Typography variant="h5" component="h2">{note.card_title}</Typography>}
+                    {note.strategies[0].strategy !== "" && 
+                        <div className="action-group">  
+                            <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[0].strategy}</Typography>
+                            <RadioGroupRating />
+                        </div>}
+                    {note.strategies[1].strategy !== "" && 
+                        <div className="action-group">
+                            <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[1].strategy}</Typography>
+                            <RadioGroupRating />
+                        </div>}
+                    {note.strategies[2].strategy !== "" && 
+                        <div className="action-group">
+                            <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[2].strategy}</Typography>
+                            <RadioGroupRating />
+                        </div>}
+                    {note.note !== "" && 
+                        <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> {note.note}</Typography>}
+ 
                     <CardActions className="sticky-options" sx={{paddingLeft: '0'}}>
                             <Button onClick={handleBackClick}
                                     component="div" 
