@@ -20,9 +20,8 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/newcard/:userid', async (req, res) => {
-    console.log(req.body)
 
-    const userID = req.params.user_ID
+    const userID = parseInt(req.params.userid)
     const cardObject = req.body
   
     // const query = {user_ID: userID, "cards.card_ID": cardObject.card_ID};
@@ -35,7 +34,8 @@ router.post('/newcard/:userid', async (req, res) => {
         $push: {"cards": cardObject}
     }
 
-    const result = await db.collection("usernotes").updateOne(query, updateCard)
+    //const result = await db.collection("usernotes").updateOne(query, updateCard)
+    const result = await User.updateOne(query, updateCard, {upsert:true})
     
     res.json("Successful insert")
     //await db.collection("users").insertOne()
