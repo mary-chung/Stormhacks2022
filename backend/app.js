@@ -8,10 +8,8 @@ const app = express();
 app.use(bodyparser.json());
 app.use(express.json());
 
-const defaultRoute = require("./routes/defaultRoute");
-app.use('/', defaultRoute);
-
 const port = process.env.PORT || 5000; 
+
 
 // code snippet by https://stackoverflow.com/a/18311469
 app.use(function (req, res, next) {
@@ -27,6 +25,10 @@ app.use(function (req, res, next) {
   // Pass to next layer of middleware
   next();
 });
+
+
+const defaultRoute = require("./routes/defaultRoute");
+app.use('/', defaultRoute);
 
 
 

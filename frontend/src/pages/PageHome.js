@@ -9,13 +9,15 @@ import { useState, useEffect } from 'react';
 function PageHome() {
 
     const [noteData, setNoteData] = useState(null);
-
+    var url = 'http://localhost:5000/'
     useEffect(() => {
         const fetchNote = async () => {
-        const res = await fetch(``);
+        const res = await fetch(url, { method : 'GET'});
         let noteDataFromAPI = await res.json();
-
-        noteDataFromAPI = noteDataFromAPI.results.splice(0, 15);
+        
+        noteDataFromAPI = noteDataFromAPI.cards;
+        console.log(noteDataFromAPI);
+        // noteDataFromAPI = noteDataFromAPI.results.splice(0, 15);
         console.log(noteDataFromAPI);
         setNoteData(noteDataFromAPI);
         }
