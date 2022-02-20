@@ -1,4 +1,5 @@
 const express = require("express")
+const { db } = require("../models/models.users")
 const router = express.Router()
 const User = require("../models/models.users")
 
@@ -13,9 +14,27 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.post('/', (req, res) => {
+router.post('/newcard/:userid', async (req, res) => {
+    console.log(req.body)
 
-})
+    const userID = req.params.user_ID
+    const cardObject = req.body
+  
+    // const query = {user_ID: userID, "cards.card_ID": cardObject.card_ID};
+    // const updateDocument = {
+    //     $set: {"cards": cardObject}
+    // }
+
+    const query = {user_ID: userID};
+    const updateCard = {
+        $push: {"cards": cardObject}
+    }
+
+    const result = await db.collection("usernotes").updateOne(query, updateCard)
+    
+    res.json("Successful insert")
+    //await db.collection("users").insertOne()
+  });
 
 // put request when user saves a card they edited
 router.put('/', async (req, res) => {
