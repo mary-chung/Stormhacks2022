@@ -1,0 +1,125 @@
+:root {
+  --white: #ffffff;
+  --pale-blue: #bec8da;
+  --blue: #7195a8;
+  --dark-blue: #478caa;
+  --grey: #7d797a;
+  --brown: #746867;
+  --black: #333333;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--black);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Typography */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+/* Links */
+
+a, a:visited {
+  color: inital;
+  text-decoration: none;
+}
+
+/* Layout */
+
+.wrapper {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+/* Header */
+header {
+  margin: 1rem auto 2rem;
+}
+
+.site-title {
+  text-align: center;
+  text-transform: lowercase;
+  padding: 1rem;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--blue);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+header a:hover {
+  color: var(--dark-blue);
+}
+
+.mindnotes-logo {
+  width: 64px;
+  height: 64px;
+}
+
+/* Main */
+main {
+  margin-bottom: 3rem;
+}
+
+/* Components */
+
+.add-button {
+  width: 64px;
+  display: block;
+  margin: 0 auto 3rem;
+}
+
+.sticky-note-expanded h2,
+.sticky-note-expanded .action-group,
+.sticky-note-expanded p {
+  margin-bottom: 1rem;
+}
+
+.sticky-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+.action-label {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: var(--dark-blue);
+  padding: 0.15rem 0.5rem;
+  border-radius: 5px;
+}
+
+.note-label {
+  font-weight: 700;
+}
+
+.MuiGrid-container.home-page-grid > div:nth-child(3n + 1) > div > a > .MuiCardContent-root {
+  color: var(--black);
+  background-color: rgba(190, 200, 218, 0.5);
+  height: 380px;
+  overflow: scroll;
+}
+
+.MuiGrid-container.home-page-grid > div:nth-child(3n + 2) > div > a > .MuiCardContent-root {
+  color: var(--black);
+  background-color: rgba(125, 121, 122, 0.5);
+  height: 380px;
+}
+
+.MuiGrid-container.home-page-grid > div:nth-child(3n + 3) > div > a > .MuiCardContent-root {
+  color: var(--black);
+  background-color: rgba(113, 149, 168, 0.5);
+  height: 380px;
+}
