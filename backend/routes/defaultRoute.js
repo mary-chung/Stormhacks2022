@@ -12,7 +12,7 @@ router.use(express.json())
 // get request for intial loading
 router.get('/', async (req, res) => {
     try {
-        const user = await User.findOne({user_ID: 0})
+        const user = await User.findOne({user_ID: 1})
         res.json(user)
     } catch (err) {
         res.status(500).json({ message: err.message })
