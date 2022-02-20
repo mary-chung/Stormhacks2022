@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
-const CardSchema = require("../models/models.cards");
+const c = require("../models/models.cards");
+const CardSchema = c.CardSchema
 
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    user_ID: { type: String, unique: true },
+    user_ID: { type: Number, unique: true },
     cards: [CardSchema],
 });
 

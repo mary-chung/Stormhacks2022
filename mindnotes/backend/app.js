@@ -5,7 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser")
 const app = express();
-
+app.use(express.json());
 
 const defaultRoute = require("./routes/defaultRoute");
 app.use('/', defaultRoute);
@@ -27,13 +27,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(bodyparser.json());
+
 
 // database connection
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true});
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log('Connected to mongo!'));
-
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); 
