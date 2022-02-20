@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function StickyNoteAdd() {
-
     
     const navigate = useNavigate();
     
@@ -31,10 +30,31 @@ function StickyNoteAdd() {
         )
     }
 
-    function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
-        console.log(thought, action, note);
+        //console.log(thought, action, note);
+        var url = 'http://localhost:5000/newcard/user_ID='
+        url = url + "0"
+
+        actionList.push(action)
+        var card = {
+            "card_ID": thought,
+            "card_title": thought,
+            "strategies": actionList
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'}, 
+            body: JSON.stringify(card)
+        }
+
+        await fetch(url, requestOptions)
+        .then(res => {
+            return res.json();
+        })
     }
+
 
     return (
         <Card sx={{ minWidth: 500 }} variant="outlined">
