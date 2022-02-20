@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Header from '../components/Header';
 import PageHome from '../pages/PageHome';
 import PageAdd from '../pages/PageAdd';
+import PageEdit from '../pages/PageEdit';
 import PageNote from '../pages/PageNote';
 
 function AppRouter() {
@@ -23,6 +24,7 @@ function AppRouter() {
           <Routes>
             <Route path="/" element={<PageHome />} />
             <Route path="/add" element={<PageAdd />} />
+            <Route path="/edit/:id" element={<PageEdit />} />
             <Route path="/note/:id" element={<PageNote />} />
           </Routes>
         </BrowserRouter>

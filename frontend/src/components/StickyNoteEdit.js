@@ -5,7 +5,7 @@ import { Box } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function StickyNoteAdd() {
+function StickyNoteEdit() {
 
     
     const navigate = useNavigate();
@@ -13,6 +13,7 @@ function StickyNoteAdd() {
     const [thought, setThought] = useState("");
     const [action, setAction] = useState("");
     const [note, setNote] = useState("");
+    
     const [actionList, setActionList]= useState([]);
     
     const actionItem = <TextField id="fullWidth" label="Action" variant="standard" fullWidth margin="normal" />;
@@ -52,7 +53,7 @@ function StickyNoteAdd() {
                   autoComplete="off"
                   >
             <CardContent>
-                    <Typography sx={{color: '#746867'}} variant="h5" component="h2">What's on your mind?</Typography>
+                    <Typography sx={{color: '#746867'}} variant="h5" component="h2">Edit your mind note</Typography>
                     <TextField  id="fullWidth" 
                                 label="Thought"
                                 value={thought} 
@@ -80,11 +81,11 @@ function StickyNoteAdd() {
                 <Button variant="outlined"
                     onClick={addItemToList}
                 >New Action</Button>
-                <Button type="submit" variant="contained">Add</Button>
+                <Button type="submit" variant="contained">Save</Button>
             </CardActions>
             </Box>
         </Card>
     )
 }
 
-export default StickyNoteAdd
+export default StickyNoteEdit
