@@ -41,8 +41,8 @@ function StickyNoteExpand({note}) {
                             <Typography variant="p" component="h3" sx={{fontWeight: '400', marginTop: '0.5rem', lineHeight: '1.6', marginBottom: '0.25rem'}}><span className="action-label">Action</span> {note.strategies[2].strategy}</Typography>
                             <RadioGroupRating />
                         </div>}
-                    {note.note !== "" && 
-                        <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> {note.note}</Typography>}
+                    {note.notes !== "" && 
+                        <Typography component="p" sx={{margin: '1rem auto'}}><span className="note-label">Notes:</span> {note.notes}</Typography>}
  
                     <CardActions className="sticky-options" sx={{paddingLeft: '0'}}>
                             <Button onClick={handleBackClick}

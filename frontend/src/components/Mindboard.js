@@ -8,7 +8,7 @@ function Mindboard({notes}) {
             <Grid container spacing={3} className="home-page-grid">
                 {notes.map(note => 
                     <Grid item xs={3}>
-                        <StickyNote key={note.card_id} note={note}/>
+                        <StickyNote key={note.card_ID} note={note}/>
                     </Grid>)}
                 <StickyNoteHomeAdd />
             </Grid>
