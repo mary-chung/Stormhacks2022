@@ -36,17 +36,17 @@ function StickyNoteAdd() {
         var url = 'http://localhost:5000/newcard/user_ID='
         url = url + "0"
 
-        actionList.push(action)
+
         var card = {
             "card_ID": thought,
             "card_title": thought,
-            "strategies": actionList
+            "strategies": [action]
         }
 
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'}, 
-            body: JSON.stringify(card)
+            body: card
         }
 
         await fetch(url, requestOptions)
