@@ -46,7 +46,7 @@ function StickyNoteAdd() {
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'}, 
-            body: card
+            body: JSON.stringify(card)
         }
 
         await fetch(url, requestOptions)
