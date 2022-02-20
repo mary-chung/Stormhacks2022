@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const bodyparser = require("body-parser")
 const app = express();
 app.use(bodyparser.json());
+app.use(express.json());
 
 const defaultRoute = require("./routes/defaultRoute");
 app.use('/', defaultRoute);
@@ -35,6 +36,5 @@ const db = mongoose.connection;
 //console.log(db)
 db.on("error", (error) => console.error(error));
 db.once("open", () => console.log('Connected to mongo!'));
-
 
 app.listen(port, () => console.log(`Listening on port ${port}`)); 

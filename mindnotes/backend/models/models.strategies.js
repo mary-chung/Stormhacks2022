@@ -7,5 +7,8 @@ const StrategySchema = new Schema({
   "rating": Number
 });
  
-module.exports = mongoose.model('Strategy', StrategySchema);
-module.exports = StrategySchema;
+const Strategy = mongoose.model('Strategy', StrategySchema);
+module.exports = {
+  Strategy,
+  StrategySchema
+}

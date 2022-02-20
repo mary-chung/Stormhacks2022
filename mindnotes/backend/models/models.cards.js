@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const StrategySchema = require("../models/models.strategies");
+const st = require("../models/models.strategies");
+const StrategySchema = st.StrategySchema
 
 const Schema = mongoose.Schema;
 
@@ -10,5 +11,8 @@ const CardSchema = new Schema({
   strategies: [StrategySchema]
 });
  
-module.exports = mongoose.model('Card', CardSchema);
-module.exports = CardSchema;
+const Card = mongoose.model('Card', CardSchema);
+module.exports = {
+  Card,
+  CardSchema
+}
